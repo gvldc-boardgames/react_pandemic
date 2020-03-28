@@ -31,7 +31,6 @@ $events-list: airlift forecast gov_grant res_pop one_quiet_night;
 $diseases-list: 'yellow' 'red' 'blue' 'black';
 $roles-list: cont_planner dispatcher medic ops_expert quar_spec researcher scientist;
 
-
 html {
   overflow: hidden;
   height: 100%;
@@ -49,7 +48,7 @@ body {
 
 @font-face {
   font-family: Phage;
-  src: url(../fonts/Phage.otf) format("opentype");
+  src: url(./assets/fonts/Phage.otf) format("opentype");
 }
 
 @keyframes rotate {
@@ -187,7 +186,7 @@ body {
 
   &.epidemic {
     .map {
-      background-image: url(../images/map_epidemic.png);
+      background-image: url(./assets/images/map_epidemic.png);
 
       .path {
         background: #02940a;
@@ -229,32 +228,32 @@ body {
 
       @each $disease in $diseases-list {
         .cube-icon-#{$disease} {
-          background-image: url('../images/cube_#{$disease}.png');
+          background-image: url('./assets/images/cube_#{$disease}.png');
         }
 
         .cured-icon-#{$disease} {
           background-size: $diseaseIconWidth $diseaseIconHeight;
           background-repeat: no-repeat;
-          background-image: url('../images/#{$disease}_cured.png');
+          background-image: url('./assets/images/#{$disease}_cured.png');
         }
 
         .eradicated-icon-#{$disease} {
           background-size: $diseaseIconWidth $diseaseIconHeight;
           background-repeat: no-repeat;
-          background-image: url('../images/#{$disease}_eradicated.png');
+          background-image: url('./assets/images/#{$disease}_eradicated.png');
         }
       }
 
       .stations-icon {
-        background-image: url(../images/station.png);
+        background-image: url(./assets/images/station.png);
       }
 
       .infection-rate-icon {
-        background-image: url(../images/infection_rate.png);
+        background-image: url(./assets/images/infection_rate.png);
       }
 
       .outbreaks-icon {
-        background-image: url(../images/outbreaks.png);
+        background-image: url(./assets/images/outbreaks.png);
       }
     }
   }
@@ -328,7 +327,7 @@ body {
         }
 
         img {
-          content: url(../images/event.png);
+          content: url(./assets/images/event.png);
         }
       }
     }
@@ -376,7 +375,7 @@ body {
 
         @each $disease in $diseases-list {
           &.disease-#{$disease} {
-            content: url('../images/disease_large_#{$disease}.png');
+            content: url('./assets/images/disease_large_#{$disease}.png');
           }
         }
       }
@@ -523,11 +522,11 @@ body {
             }
 
             .player-discard {
-              background-image: url(../images/player_card.png);
+              background-image: url(./assets/images/player_card.png);
             }
 
             .infection-discard {
-              background-image: url(../images/infection_card.png);
+              background-image: url(./assets/images/infection_card.png);
             }
           }
 
@@ -562,7 +561,7 @@ body {
   .map {
     position: relative;
     flex: 1;
-    background: url(../images/map.png) #011533 no-repeat;
+    background: url(./assets/images/map.png) #011533 no-repeat;
     background-size: contain;
     overflow: hidden;
     min-width: 1024px;
@@ -595,7 +594,7 @@ body {
 
         @each $disease in $diseases-list {
           &.#{$disease} {
-            background-image: url('../images/disease_large_#{$disease}.png');
+            background-image: url('./assets/images/disease_large_#{$disease}.png');
           }
         }
       }
@@ -627,7 +626,7 @@ body {
           height: 100%;
           display: block;
           float: left;
-          background: url(../images/city_sel.png);
+          background: url(./assets/images/city_sel.png);
           background-size: $selSize $selSize;
           animation-name: rotate;
           animation-duration: 7s;
@@ -668,7 +667,7 @@ body {
     }
 
     .station {
-      background: url(../images/station.png);
+      background: url(./assets/images/station.png);
       background-size: $stationSize $stationSize;
       width: $stationSize;
       height: $stationSize;
@@ -689,7 +688,7 @@ body {
 
       @each $role in $roles-list {
         &.#{$role} {
-          background-image: url(../images/#{$role}.png);
+          background-image: url(./assets/images/#{$role}.png);
         }
       }
 
@@ -725,7 +724,7 @@ body {
 
       @each $disease in $diseases-list {
         &.#{$disease} {
-          background-image: url('../images/cube_#{$disease}.png');
+          background-image: url('./assets/images/cube_#{$disease}.png');
         }
       }
 
@@ -778,18 +777,18 @@ body {
 
     @for $id from 0 through 47 {
       &.city-#{$id} {
-        background-image: url('../images/city-#{$id}.png');
+        background-image: url('./assets/images/city-#{$id}.png');
       }
     }
 
     @each $event in $events-list {
       &.event-#{$event} {
-        background-image: url('../images/event-#{$event}.png');
+        background-image: url('./assets/images/event-#{$event}.png');
       }
     }
 
     &.epidemic {
-      background-image: url('../images/epidemic.png');
+      background-image: url('./assets/images/epidemic.png');
     }
   }
 
@@ -865,7 +864,7 @@ body {
     }
 
     .player-deck {
-      background-image: url(../images/player_card.png);
+      background-image: url(./assets/images/player_card.png);
 
       &.dealing-deck {
         position: static;
@@ -880,7 +879,7 @@ body {
     }
 
     .infection-deck {
-      background-image: url(../images/infection_card.png);
+      background-image: url(./assets/images/infection_card.png);
     }
 
     .card-drawer {
@@ -976,7 +975,7 @@ body {
 
         &.player-deck {
           background-size: $cardWidth $cardHeight;
-          background-image: url(../images/player_card.png);
+          background-image: url(./assets/images/player_card.png);
           margin-right: 0;
           transform-origin: 0% 0%;
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
@@ -1015,7 +1014,7 @@ body {
       top: ($citySize - $crossHairSize) / 2;
       width: $crossHairSize;
       height: $crossHairSize;
-      background: url(../images/crosshair.png);
+      background: url(./assets/images/crosshair.png);
       background-size: 76px 76px;
       border-radius: 38px;
       animation: crosshair-rotate 2s linear;
@@ -1256,7 +1255,7 @@ body {
 
       @each $disease in $diseases-list {
         &.disease-#{$disease} {
-          background-image: url(../images/disease_large_#{$disease}.png);
+          background-image: url(./assets/images/disease_large_#{$disease}.png);
         }
       }
     }
@@ -1480,14 +1479,14 @@ body {
   .outbreaks {
     li {
       background-size: 30px 30px;
-      background-image: url(../images/outbreaks_shape.png);
+      background-image: url(./assets/images/outbreaks_shape.png);
 
       &:not(:first-child) {
         margin-left: 2px;
       }
 
       &.past {
-        background-image: url(../images/outbreaks_filled.png);
+        background-image: url(./assets/images/outbreaks_filled.png);
       }
     }
   }
