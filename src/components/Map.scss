@@ -1,0 +1,227 @@
+$citySize: 32px;
+$stationSize: 24px;
+$selSize: 40px;
+$cubeSize: 24px;
+$outbrSize: 40px;
+$playerSize: 40px;
+$cubeFlashColor: #ebebeb;
+$diseases-list: 'yellow' 'red' 'blue' 'black';
+
+$contPlannerColor: #35acb3;
+$dispatcherColor: #b86291;
+$medicColor: darkorange;
+$opsExpertColor: #5fa73f;
+$quarSpecColor: #26734f;
+$researcherColor: #ad7457;
+$scientistColor: #c7c7c7;
+$role-colors-map: (cont_planner: $contPlannerColor, dispatcher: $dispatcherColor, medic: $medicColor,
+  ops_expert: $opsExpertColor, quar_spec: $quarSpecColor, researcher: $researcherColor, scientist: $scientistColor);
+$roles-list: cont_planner dispatcher medic ops_expert quar_spec researcher scientist;
+.map {
+  position: relative;
+  flex: 1;
+  background: url(./../assets/images/map.png) #011533 no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  min-width: 1024px;
+  min-height: 768px;
+
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    cursor: not-allowed;
+  }
+
+  .city, .player, .station {
+    position: absolute;
+  }
+
+  .city {
+    .icon {
+      position: relative;
+      z-index: 50;
+      display: block;
+      background: no-repeat center;
+      background-size: $citySize $citySize;
+      width: $citySize;
+      height: $citySize;
+      cursor: pointer;
+
+      @each $disease in $diseases-list {
+        &.#{$disease} {
+          background-image: url('./../assets/images/disease_large_#{$disease}.png');
+        }
+      }
+    }
+
+    .name {
+      position: absolute;
+      left: $citySize / 2;
+      transform: translate(-50%, 0);
+      font-family: 'Phage';
+      font-size: 11px;
+      color: white;
+      text-shadow: 1px 1px 1px black;
+      white-space: nowrap;
+      user-select: none;
+      cursor: default;
+      z-index: 1;
+    }
+
+    .selection-container {
+      width: $selSize;
+      height: $selSize;
+      position: absolute;
+      left: ($citySize - $selSize) / 2;
+      top: ($citySize - $selSize) / 2;
+      z-index: 1;
+
+      .selection {
+        width: 100%;
+        height: 100%;
+        display: block;
+        float: left;
+        background: url(./../assets/images/city_sel.png);
+        background-size: $selSize $selSize;
+        animation-name: rotate;
+        animation-duration: 7s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .selection-bg {
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: lightblue;
+        opacity: 0.5;
+        border-radius: $selSize / 2;
+      }
+    }
+
+    &:hover .selection-container .selection-bg {
+      display: block;
+    }
+
+    .outbreak-warning {
+      width: $outbrSize;
+      height: $outbrSize;
+      display: block;
+      position: absolute;
+      left: ($citySize - $outbrSize) / 2;
+      top: ($citySize - $outbrSize) / 2;
+      border-radius: $outbrSize / 2;
+      background: darkred;
+      animation-name: outbreak-warning;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-direction: alternate;
+      z-index: 1;
+    }
+  }
+
+  .station {
+    background: url(./../assets/images/station.png);
+    background-size: $stationSize $stationSize;
+    width: $stationSize;
+    height: $stationSize;
+    top: 10px;
+    left: ($citySize - $stationSize) / 2;
+    z-index: 100;
+    cursor: pointer;
+  }
+
+  .player {
+    width: $playerSize;
+    height: $playerSize;
+    background-size: cover;
+    text-align: center;
+    transform: translate(($citySize - $playerSize) / 2, -($citySize / 2));
+    -webkit-transform: translate(($citySize - $playerSize) / 2, -($citySize / 2));
+    z-index: 50;
+
+    @each $role in $roles-list {
+      &.#{$role} {
+        background-image: url(./../assets/images/#{$role}.png);
+      }
+    }
+
+    .cur-player {
+      position: absolute;
+      font-size: 1.4em;
+      animation-name: cur-player;
+      animation-duration: 0.8s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+      animation-direction: alternate;
+    }
+  }
+
+  .path {
+    position: absolute;
+    height: 1px;
+    box-shadow: 0px 0px 2px 1px #ccffff;
+    transform-origin: 0 100%;
+    -webkit-transform-origin: 0 100%;
+    background: #ccffff;
+  }
+
+  .cube {
+    position: absolute;
+    width: $cubeSize;
+    height: $cubeSize;
+    background-size: $cubeSize $cubeSize;
+    animation-name: cube;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 1;
+
+    @each $disease in $diseases-list {
+      &.#{$disease} {
+        background-image: url('./../assets/images/cube_#{$disease}.png');
+      }
+    }
+
+    &.cubes-1 {
+      animation-duration: 9s;
+    }
+
+    &.cubes-2 {
+      animation-duration: 6s;
+    }
+
+    &.cubes-3 {
+      animation-duration: 3s;
+    }
+
+    &-flash::after {
+      content: "";
+      position: absolute;
+      border-radius: $cubeSize / 2;
+      z-index: 10050;
+      width: 0;
+      height: 0;
+      top: $cubeSize / 2;
+      left: $cubeSize / 2;
+
+      animation-name: cube-flash;
+      animation-timing-function: ease-in;
+      animation-duration: 0.4s;
+      animation-iteration-count: 1;
+    }
+
+    &-neighbor {
+      border-radius: $cubeSize / 2;
+      box-shadow: 0 0 4px 3px $cubeFlashColor;
+    }
+  }
+
+  .cube-group {
+    position: absolute;
+  }
+}
