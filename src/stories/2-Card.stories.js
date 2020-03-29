@@ -1,5 +1,5 @@
 import React from 'react';
-import {withKnobs, number} from '@storybook/addon-knobs';
+import {withKnobs, number, text} from '@storybook/addon-knobs';
 import Card from './../components/Card';
 
 export default {
@@ -8,5 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const City = () => <Card cardType='city' id={number("Id", 42)} />
-export const Event = () => <Card cardType='event' id={number("Id", 2)} />
+export const City = () => <Card cardType='city' id={number('Id', 42)} />
+export const Event = () => <Card cardType='event' id={text('Event', 'airlift')} />
+export const Epidemic = () => <Card cardType='epidemic' />
