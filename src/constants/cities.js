@@ -1,245 +1,55 @@
 // cities range from 0 to 47 -- index of elements in a 48 element array :)
 export const cityIds = Array.from({length: 48}).map((_, idx) => idx);
 
+// NOTE: mostly positive coords are [y, x] -- from original
+// known effected places: CitiesLayer and PathsLayer
 export const cities = Object.freeze({
-  0: {
-    id: '0',
-    name: 'San Francisco',
-    color: 'blue'
-  },
-  1: {
-    id: '1',
-    name: 'Chicago',
-    color: 'blue'
-  },
-  2: {
-    id: '2',
-    name: 'Atlanta',
-    color: 'blue'
-  },
-  3: {
-    id: '3',
-    name: 'Montreal',
-    color: 'blue'
-  },
-  4: {
-    id: '4',
-    name: 'Washington',
-    color: 'blue'
-  },
-  5: {
-    id: '5',
-    name: 'New York',
-    color: 'blue'
-  },
-  6: {
-    id: '6',
-    name: 'Madrid',
-    color: 'blue'
-  },
-  7: {
-    id: '7',
-    name: 'London',
-    color: 'blue'
-  },
-  8: {
-    id: '8',
-    name: 'Paris',
-    color: 'blue'
-  },
-  9: {
-    id: '9',
-    name: 'Essen',
-    color: 'blue'
-  },
-  10: {
-    id: '10',
-    name: 'Milan',
-    color: 'blue'
-  },
-  11: {
-    id: '11',
-    name: 'St. Petersburg',
-    color: 'blue'
-  },
-  12: {
-    id: '12',
-    name: 'Los Angeles',
-    color: 'yellow'
-  },
-  13: {
-    id: '13',
-    name: 'Mexico City',
-    color: 'yellow'
-  },
-  14: {
-    id: '14',
-    name: 'Lima',
-    color: 'yellow'
-  },
-  15: {
-    id: '15',
-    name: 'Santiago',
-    color: 'yellow'
-  },
-  16: {
-    id: '16',
-    name: 'Bogota',
-    color: 'yellow'
-  },
-  17: {
-    id: '17',
-    name: 'Miami',
-    color: 'yellow'
-  },
-  18: {
-    id: '18',
-    name: 'Buenos Aires',
-    color: 'yellow'
-  },
-  19: {
-    id: '19',
-    name: 'Sao Paulo',
-    color: 'yellow'
-  },
-  20: {
-    id: '20',
-    name: 'Lagos',
-    color: 'yellow'
-  },
-  21: {
-    id: '21',
-    name: 'Kinshasa',
-    color: 'yellow'
-  },
-  22: {
-    id: '22',
-    name: 'Johannesburg',
-    color: 'yellow'
-  },
-  23: {
-    id: '23',
-    name: 'Khartoum',
-    color: 'yellow'
-  },
-  24: {
-    id: '24',
-    name: 'Algiers',
-    color: 'black'
-  },
-  25: {
-    id: '25',
-    name: 'Cairo',
-    color: 'black'
-  },
-  26: {
-    id: '26',
-    name: 'Istanbul',
-    color: 'black'
-  },
-  27: {
-    id: '27',
-    name: 'Baghdad',
-    color: 'black'
-  },
-  28: {
-    id: '28',
-    name: 'Riyadh',
-    color: 'black'
-  },
-  29: {
-    id: '29',
-    name: 'Moscow',
-    color: 'black'
-  },
-  30: {
-    id: '30',
-    name: 'Tehran',
-    color: 'black'
-  },
-  31: {
-    id: '31',
-    name: 'Karachi',
-    color: 'black'
-  },
-  32: {
-    id: '32',
-    name: 'Mumbai',
-    color: 'black'
-  },
-  33: {
-    id: '33',
-    name: 'Delhi',
-    color: 'black'
-  },
-  34: {
-    id: '34',
-    name: 'Chennai',
-    color: 'black'
-  },
-  35: {
-    id: '35',
-    name: 'Kolkata',
-    color: 'black'
-  },
-  36: {
-    id: '36',
-    name: 'Jakarta',
-    color: 'red'
-  },
-  37: {
-    id: '37',
-    name: 'Bangkok',
-    color: 'red'
-  },
-  38: {
-    id: '38',
-    name: 'Beijing',
-    color: 'red'
-  },
-  39: {
-    id: '39',
-    name: 'Shanghai',
-    color: 'red'
-  },
-  40: {
-    id: '40',
-    name: 'Hong Kong',
-    color: 'red'
-  },
-  41: {
-    id: '41',
-    name: 'Ho Chi Minh City',
-    color: 'red'
-  },
-  42: {
-    id: '42',
-    name: 'Seoul',
-    color: 'red'
-  },
-  43: {
-    id: '43',
-    name: 'Taipei',
-    color: 'red'
-  },
-  44: {
-    id: '44',
-    name: 'Manila',
-    color: 'red'
-  },
-  45: {
-    id: '45',
-    name: 'Tokyo',
-    color: 'red'
-  },
-  46: {
-    id: '46',
-    name: 'Osaka',
-    color: 'red'
-  },
-  47: {
-    id: '47',
-    name: 'Sydney',
-    color: 'red'
-  }
+  0: {id: "0", name: "San Francisco", color: "blue", coords: [250,205]},
+  1: {id: "1", name: "Chicago", color: "blue", coords: [200,320]},
+  2: {id: "2", name: "Atlanta", color: "blue", coords: [265,350]},
+  3: {id: "3", name: "Montreal", color: "blue", coords: [185,410]},
+  4: {id: "4", name: "Washington", color: "blue", coords: [255,445]},
+  5: {id: "5", name: "New York", color: "blue", coords: [205,475]},
+  6: {id: "6", name: "Madrid", color: "blue", coords: [240,660]},
+  7: {id: "7", name: "London", color: "blue", coords: [175,665]},
+  8: {id: "8", name: "Paris", color: "blue", coords: [205,720]},
+  9: {id: "9", name: "Essen", color: "blue", coords: [155,755]},
+  10: {id: "10", name: "Milan", color: "blue", coords: [215,780]},
+  11: {id: "11", name: "St. Petersburg", color: "blue", coords: [140,835]},
+  12: {id: "12", name: "Los Angeles", color: "yellow", coords: [320,215]},
+  13: {id: "13", name: "Mexico City", color: "yellow", coords: [345,305]},
+  14: {id: "14", name: "Lima", color: "yellow", coords: [445,370]},
+  15: {id: "15", name: "Santiago", color: "yellow", coords: [510,420]},
+  16: {id: "16", name: "Bogota", color: "yellow", coords: [390,420]},
+  17: {id: "17", name: "Miami", color: "yellow", coords: [310,425]},
+  18: {id: "18", name: "Buenos Aires", color: "yellow", coords: [560,485]},
+  19: {id: "19", name: "Sao Paulo", color: "yellow", coords: [510,530]},
+  20: {id: "20", name: "Lagos", color: "yellow", coords: [385,695]},
+  21: {id: "21", name: "Kinshasa", color: "yellow", coords: [435,760]},
+  22: {id: "22", name: "Johannesburg", color: "yellow", coords: [535,815]},
+  23: {id: "23", name: "Khartoum", color: "yellow", coords: [390,840]},
+  24: {id: "24", name: "Algiers", color: "black", coords: [275,710]},
+  25: {id: "25", name: "Cairo", color: "black", coords: [300,830]},
+  26: {id: "26", name: "Istanbul", color: "black", coords: [245,845]},
+  27: {id: "27", name: "Baghdad", color: "black", coords: [270,895]},
+  28: {id: "28", name: "Riyadh", color: "black", coords: [350,920]},
+  29: {id: "29", name: "Moscow", color: "black", coords: [200,900]},
+  30: {id: "30", name: "Tehran", color: "black", coords: [245,955]},
+  31: {id: "31", name: "Karachi", color: "black", coords: [310,970]},
+  32: {id: "32", name: "Mumbai", color: "black", coords: [360,990]},
+  33: {id: "33", name: "Delhi", color: "black", coords: [285,1030]},
+  34: {id: "34", name: "Chennai", color: "black", coords: [375,1040]},
+  35: {id: "35", name: "Kolkata", color: "black", coords: [315,1085]},
+  36: {id: "36", name: "Jakarta", color: "red", coords: [440,1095]},
+  37: {id: "37", name: "Bangkok", color: "red", coords: [365,1115]},
+  38: {id: "38", name: "Beijing", color: "red", coords: [220,1145]},
+  39: {id: "39", name: "Shanghai", color: "red", coords: [285,1170]},
+  40: {id: "40", name: "Hong Kong", color: "red", coords: [345,1175]},
+  41: {id: "41", name: "Ho Chi Minh City", color: "red", coords: [425,1185]},
+  42: {id: "42", name: "Seoul", color: "red", coords: [205,1220]},
+  43: {id: "43", name: "Taipei", color: "red", coords: [320,1230]},
+  44: {id: "44", name: "Manila", color: "red", coords: [405,1255]},
+  45: {id: "45", name: "Tokyo", color: "red", coords: [225,1270]},
+  46: {id: "46", name: "Osaka", color: "red", coords: [280,1285]},
+  47: {id: "47", name: "Sydney", color: "red", coords: [555,1320]},
 });
