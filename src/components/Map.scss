@@ -17,6 +17,12 @@ $scientistColor: #c7c7c7;
 $role-colors-map: (cont_planner: $contPlannerColor, dispatcher: $dispatcherColor, medic: $medicColor,
   ops_expert: $opsExpertColor, quar_spec: $quarSpecColor, researcher: $researcherColor, scientist: $scientistColor);
 $roles-list: cont_planner dispatcher medic ops_expert quar_spec researcher scientist;
+
+@font-face {
+  font-family: Phage;
+  src: url(./../assets/fonts/Phage.otf) format("opentype");
+}
+
 .map {
   position: relative;
   flex: 1;

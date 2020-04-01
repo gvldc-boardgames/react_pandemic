@@ -3,7 +3,7 @@ import CityLayer from './CityLayer';
 import PathsLayer from './PathsLayer';
 import './Map.scss';
 
-const Map = () => {
+const Map = ({stations = []}) => {
   const mapRef = useRef(null);
   const [height, setHeight] = useState(null);
   const [width, setWidth] = useState(null);
@@ -27,7 +27,7 @@ const Map = () => {
 
   return (
     <div className='map' ref={mapRef}>
-      {height && width && <CityLayer width={width} height={height} />}
+      {height && width && <CityLayer stations={stations} width={width} height={height} />}
       {height && width && <PathsLayer width={width} height={height} />}
       {/*TODO: place overlays here*/}
     </div>
