@@ -28,6 +28,7 @@ const Map = () => {
   return (
     <div className='map' ref={mapRef}>
       {height && width && <CityLayer width={width} height={height} />}
+      {height && width && <PathsLayer width={width} height={height} />}
       {/*TODO: place overlays here*/}
     </div>
   );
