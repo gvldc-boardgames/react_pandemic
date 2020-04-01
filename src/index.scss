@@ -61,20 +61,6 @@ body {
   }
 }
 
-@keyframes cube {
-  0% {
-    transform: rotate(0deg)
-               translate(20px)
-               rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg)
-               translate(20px)
-               rotate(-720deg);
-  }
-}
-
 @keyframes cube-flash {
   0%, 100% {
     box-shadow: initial;

@@ -23,6 +23,20 @@ $roles-list: cont_planner dispatcher medic ops_expert quar_spec researcher scien
   src: url(./../assets/fonts/Phage.otf) format("opentype");
 }
 
+@keyframes cube {
+  0% {
+    transform: rotate(0deg)
+               translate(20px)
+               rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg)
+               translate(20px)
+               rotate(-720deg);
+  }
+}
+
 .map {
   position: relative;
   flex: 1;

@@ -26,6 +26,12 @@ export function getLocationOrigin([top, left], width, height) {
   };*/
 }
 
+// get the origin on the cubes
+export function getCubeOrigin([top, left], width, height) {
+  const ratio = getMapRatio(width, height);
+  return { top: top * ratio - 12, left: left * ratio - 12 };
+}
+
 export function mapCoords(coords, width, height) {
   const ratio = getMapRatio(width, height);
   return [coords[0] * ratio, coords[1] * ratio];
