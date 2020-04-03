@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState,} from 'react';
 import CityLayer from './CityLayer';
 import PathsLayer from './PathsLayer';
 import DiseaseLayer from './DiseaseLayer';
+import InfectionSpread from './InfectionSpread';
 import './Map.scss';
 
 /**
@@ -11,7 +12,7 @@ import './Map.scss';
  * @param {Object} diseases.cityId info about diseases in a city
  * @param {Number} diseases.cityId[color] number of disease cubes of given color
  **/
-const Map = ({stations = [], diseases = {},}) => {
+const Map = ({stations = [], diseases = {}, infectionSpread = {}}) => {
   const mapRef = useRef(null);
   const [height, setHeight] = useState(null);
   const [width, setWidth] = useState(null);
@@ -38,6 +39,7 @@ const Map = ({stations = [], diseases = {},}) => {
       {height && width && <CityLayer stations={stations} width={width} height={height} />}
       {height && width && <PathsLayer width={width} height={height} />}
       {height && width && <DiseaseLayer diseases={diseases} width={width} height={height} />}
+      {infectionSpread.startCityId && infectionSpread.color && height && width && <InfectionSpread {...infectionSpread} height={height} width={width} />}
       {/*TODO: place overlays here*/}
     </div>
   );

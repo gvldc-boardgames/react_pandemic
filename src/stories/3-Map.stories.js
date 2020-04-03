@@ -17,8 +17,8 @@ export const MapWithStations = () => {
 };
 
 export const MapWithDiseases = () => {
-  const stations = ['2'];
   const infectedCity = text('Infected City ID', '0');
+  const stations = ['2'];
   const blueCount = number('Blue cubes', 0);
   const redCount = number('Red cubes', 0);
   const blackCount = number('Black cubes', 0);
@@ -35,3 +35,12 @@ export const MapWithDiseases = () => {
     return <h1>Please select a city between 0-47 and at least some cubes</h1>;
   }
 };
+
+export const MapWithInfectionSpread = () => {
+  const infectedCity = text('Infected City ID', '0');
+  if (parseInt(infectedCity) >= 0 && parseInt(infectedCity) <= 47) {
+    return <Map infectionSpread={{startCityId: infectedCity, color: 'red'}} />;
+  } else {
+    return <Map />;
+  }
+}
