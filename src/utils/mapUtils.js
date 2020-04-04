@@ -37,6 +37,12 @@ export function mapCoords(coords, width, height) {
   return [coords[0] * ratio, coords[1] * ratio];
 }
 
+export function splitPathWithRatio(startCoords, endCoords, width, height) {
+  return splitPath(mapCoords(startCoords, width, height),
+      mapCoords(endCoords, width, height),
+      width);
+}
+
 // function used in Path drawing...
 export function splitPath([x1, y1], [x2, y2], width) {
   const SPLIT_PATH_HEURISTIC = 0.25;
